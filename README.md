@@ -1,13 +1,11 @@
-# WarpCTL
-
 <div align="center">
+
+# A powerful command-line interface for managing IceWarp server operations.
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 ![Go Version](https://img.shields.io/badge/go-1.21+-blue?style=flat-square)
 ![Platform](https://img.shields.io/badge/platform-linux%20%7C%20windows-blue?style=flat-square)
-
-A powerful command-line interface for managing IceWarp server operations.
 
 [Features](#features) • [Installation](#installation) • [Usage](#usage) • [Documentation](#documentation)
 
@@ -427,6 +425,6 @@ For issues, questions, or contributions, please visit the [GitHub repository](ht
 
 <div align="center">
 
-Made with Go | Maintained by [Ranlens Denck](https://github.com/rsdenck)
+Made with Go | Maintained by [rsdenck](https://github.com/rsdenck)
 
 </div>
