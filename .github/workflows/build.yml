@@ -1,0 +1,144 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-linux:
+    name: Build Linux Binary
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+          cache: true
+
+      - name: Verify line endings (LF only)
+        run: |
+          echo "Checking for CRLF line endings..."
+          if git ls-files --eol | grep 'i/crlf'; then
+            echo "Error: CRLF line endings detected!"
+            git ls-files --eol | grep 'i/crlf'
+            exit 1
+          fi
+          echo "All files use LF line endings ✓"
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Run tests
+        run: go test -v ./...
+
+      - name: Build for Linux AMD64
+        run: |
+          GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o warpctl-linux-amd64
+          chmod +x warpctl-linux-amd64
+
+      - name: Build for Linux ARM64
+        run: |
+          GOOS=linux GOARCH=arm64 go build -ldflags="-s -w" -o warpctl-linux-arm64
+          chmod +x warpctl-linux-arm64
+
+      - name: Verify binaries
+        run: |
+          file warpctl-linux-amd64
+          file warpctl-linux-arm64
+          ./warpctl-linux-amd64 --version || echo "Binary built successfully"
+
+      - name: Upload Linux AMD64 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: warpctl-linux-amd64
+          path: warpctl-linux-amd64
+          retention-days: 30
+
+      - name: Upload Linux ARM64 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: warpctl-linux-arm64
+          path: warpctl-linux-arm64
+          retention-days: 30
+
+  build-windows:
+    name: Build Windows Binary
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+          cache: true
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Build for Windows AMD64
+        run: |
+          GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o warpctl-windows-amd64.exe
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: warpctl-windows-amd64
+          path: warpctl-windows-amd64.exe
+          retention-days: 30
+
+  release:
+    name: Create Release
+    needs: [build-linux, build-windows]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Create checksums
+        run: |
+          cd artifacts
+          for dir in */; do
+            cd "$dir"
+            for file in *; do
+              sha256sum "$file" > "${file}.sha256"
+            done
+            cd ..
+          done
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            artifacts/warpctl-linux-amd64/*
+            artifacts/warpctl-linux-arm64/*
+            artifacts/warpctl-windows-amd64/*
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

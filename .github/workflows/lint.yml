@@ -1,0 +1,49 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  golangci-lint:
+    name: Go Lint
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+          cache: true
+
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: latest
+          args: --timeout=5m
+
+  line-endings:
+    name: Check Line Endings
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for CRLF line endings
+        run: |
+          echo "Checking for CRLF line endings..."
+          if git ls-files --eol | grep 'i/crlf'; then
+            echo "❌ Error: CRLF line endings detected!"
+            echo "Files with CRLF:"
+            git ls-files --eol | grep 'i/crlf'
+            exit 1
+          fi
+          echo "✓ All files use LF line endings"
