@@ -30,6 +30,8 @@ A análise identificou **MÚLTIPLAS VULNERABILIDADES CRÍTICAS** no servidor Ice
 
 ## Estrutura dos Relatórios
 - `infrastructure-security-assessment.md` - **Análise geral da infraestrutura** 🏗️
+- `cve-classification-by-host.md` - **Classificação detalhada de CVEs por host** 🎯
+- `attack-surface-analysis.md` - **Mapeamento de superfície de ataque** 🔍
 - `security-assessment.md` - **Relatório principal de segurança IceWarp** 📋
 - `remediation-plan.md` - **Plano de remediação priorizado** ⚡
 - `incident-response-playbook.md` - **Playbook de resposta a incidentes** 🚨
