@@ -6,12 +6,15 @@
 A análise identificou **MÚLTIPLAS VULNERABILIDADES CRÍTICAS** no servidor IceWarp que representam **RISCO EXTREMO** para a organização. Foram encontradas **4 CVEs críticas** com scores CVSS entre 9.8 e 10.0, todas permitindo **execução remota de código não autenticada**.
 
 ### 🔴 Vulnerabilidades Críticas Encontradas
-| CVE | CVSS | Descrição | Status |
-|-----|------|-----------|--------|
-| **CVE-2025-14500** | 9.8 | Command Injection via X-File-Operation | 🔴 EXPLOIT PÚBLICO |
-| **CVE-2025-52691** | 10.0 | Arbitrary File Upload to RCE | 🔴 EXPLOIT PÚBLICO |
-| **CVE-2026-22907** | 9.8 | RCE via Header Injection | 🔴 RECENTE |
-| **CVE-2026-2493** | 8.5 | Directory Traversal | 🟡 INFORMAÇÕES EXPOSTAS |
+| Sistema | CVE/Vulnerabilidade | CVSS | Descrição | Status |
+|---------|---------------------|------|-----------|--------|
+| **IceWarp** | CVE-2025-14500 | 9.8 | Command Injection via X-File-Operation | 🔴 EXPLOIT PÚBLICO |
+| **IceWarp** | CVE-2025-52691 | 10.0 | Arbitrary File Upload to RCE | 🔴 EXPLOIT PÚBLICO |
+| **Veeam Backup** | Interface Admin Exposta | 9.0 | Acesso total aos backups | 🔴 CRÍTICO |
+| **vCloud Director** | Console Admin Exposto | 9.5 | Controle total da virtualização | 🔴 CRÍTICO |
+| **Zimbra Admin** | Console Exposto (9071) | 8.8 | Controle total do email | 🔴 CRÍTICO |
+| **Guacamole** | Gateway Remoto Exposto | 7.8 | Acesso remoto não protegido | 🟡 ALTO |
+| **HAProxy** | Stats Interface HTTP | 5.8 | Information Disclosure | 🟡 MÉDIO |
 
 ### 🚨 AÇÃO IMEDIATA REQUERIDA
 - **Patches devem ser aplicados em caráter de EMERGÊNCIA**
@@ -26,7 +29,8 @@ A análise identificou **MÚLTIPLAS VULNERABILIDADES CRÍTICAS** no servidor Ice
 - **Classificação**: CONFIDENCIAL
 
 ## Estrutura dos Relatórios
-- `security-assessment.md` - **Relatório principal de segurança** 📋
+- `infrastructure-security-assessment.md` - **Análise geral da infraestrutura** 🏗️
+- `security-assessment.md` - **Relatório principal de segurança IceWarp** 📋
 - `remediation-plan.md` - **Plano de remediação priorizado** ⚡
 - `incident-response-playbook.md` - **Playbook de resposta a incidentes** 🚨
 - `security-monitoring.md` - **Configuração de monitoramento avançado** 📊
@@ -35,6 +39,16 @@ A análise identificou **MÚLTIPLAS VULNERABILIDADES CRÍTICAS** no servidor Ice
 - `icewarp-hardening.md` - Guia de hardening específico para IceWarp 🔒
 - `ssl-tls-analysis.md` - Análise detalhada de SSL/TLS 🔐
 - `headers-analysis.md` - Análise de headers de segurança 🛡️
+
+### Análises por Categoria
+- `backup/` - **Análises de sistemas de backup** 💾
+  - `veeam-security-analysis.md` - Análise crítica dos sistemas Veeam
+- `virtualization/` - **Análises de virtualização** ☁️
+  - `vmware-security-analysis.md` - Análise crítica do vCloud Director
+- `email/` - **Análises de sistemas de email** 📧
+  - `zimbra-security-analysis.md` - Análise crítica do Zimbra Admin Console
+- `webserver/` - **Análises de servidores web** 🌐
+  - `haproxy-guacamole-analysis.md` - Análise do HAProxy e Guacamole
 
 ## Cronograma de Remediação
 
