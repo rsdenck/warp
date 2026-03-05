@@ -16,10 +16,12 @@ import (
 	"github.com/icewarp/warpctl/cmd/mail"
 	"github.com/icewarp/warpctl/cmd/maintenance"
 	"github.com/icewarp/warpctl/cmd/notes"
+	"github.com/icewarp/warpctl/cmd/pinchtab"
 	"github.com/icewarp/warpctl/cmd/services"
 	"github.com/icewarp/warpctl/cmd/spam"
 	"github.com/icewarp/warpctl/cmd/tasks"
 	"github.com/icewarp/warpctl/cmd/teamchat"
+	"github.com/icewarp/warpctl/cmd/zabbix"
 	"github.com/icewarp/warpctl/internal/logger"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -71,6 +73,8 @@ func init() {
 	rootCmd.AddCommand(devices.DevicesCmd)
 	rootCmd.AddCommand(services.ServicesCmd)
 	rootCmd.AddCommand(certs.CertsCmd)
+	rootCmd.AddCommand(zabbix.ZabbixCmd)
+	rootCmd.AddCommand(pinchtab.PinchtabCmd)
 }
 
 func initConfig() {

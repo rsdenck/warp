@@ -68,23 +68,29 @@ type LoginResponse struct {
 }
 
 func (c *TeamChatClient) LoginPlain(username, password string) (*LoginResponse, error) {
+	// Try the correct IceWarp authentication endpoint based on the Python script
 	payload := map[string]interface{}{
-		"user": username,
-		"pass": password,
+		"email": username,
 	}
 
-	resp, err := c.client.postJSON("/teamchatapi/iwauthentication.login.plain", payload)
+	// First, get the login challenge
+	resp, err := c.client.postJSON("/teamchatapi/iwauthentication.getLogin", payload)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to get login challenge: %w", err)
 	}
 
-	var result LoginResponse
-	if err := json.Unmarshal(resp, &result); err != nil {
-		return nil, fmt.Errorf("failed to parse response: %w", err)
+	var loginChallenge struct {
+		QRCode    string `json:"qrcode"`
+		Secret    string `json:"secret"`
+		LoginType string `json:"login_type"`
+	}
+	
+	if err := json.Unmarshal(resp, &loginChallenge); err != nil {
+		return nil, fmt.Errorf("failed to parse login challenge: %w", err)
 	}
 
-	c.token = result.Token
-	return &result, nil
+	// For now, return an error suggesting web automation
+	return nil, fmt.Errorf("TeamChat API requires QR code authentication. Use web automation instead: 'warpctl zabbix test-web-notify'")
 }
 
 type LoginExternalResponse struct {
@@ -117,7 +123,11 @@ type GetLoginResponse struct {
 }
 
 func (c *TeamChatClient) GetLogin() (*GetLoginResponse, error) {
-	resp, err := c.client.postJSON("/teamchatapi/iwauthentication.getLogin", map[string]interface{}{})
+	payload := map[string]interface{}{
+		"email": "ranlens.denck@armazem.cloud",
+	}
+	
+	resp, err := c.client.postJSON("/teamchatapi/iwauthentication.getLogin", payload)
 	if err != nil {
 		return nil, err
 	}
@@ -293,4 +303,38 @@ func (c *TeamChatClient) SetToken(token string) {
 
 func (c *TeamChatClient) IsAuthenticated() bool {
 	return c.token != ""
+}
+
+type PostMessageResponse struct {
+	Success bool   `json:"success"`
+	ID      string `json:"id,omitempty"`
+	Error   string `json:"error,omitempty"`
+}
+
+func (c *TeamChatClient) PostMessage(channel, text string) (*PostMessageResponse, error) {
+	if c.token == "" {
+		return nil, fmt.Errorf("not authenticated. Call Login first")
+	}
+
+	payload := map[string]interface{}{
+		"token":   c.token,
+		"channel": channel,
+		"text":    text,
+	}
+
+	resp, err := c.client.postJSON("/teamchatapi/chat.postMessage", payload)
+	if err != nil {
+		return nil, err
+	}
+
+	var result PostMessageResponse
+	if err := json.Unmarshal(resp, &result); err != nil {
+		return nil, fmt.Errorf("failed to parse response: %w", err)
+	}
+
+	if !result.Success && result.Error != "" {
+		return nil, fmt.Errorf("failed to post message: %s", result.Error)
+	}
+
+	return &result, nil
 }

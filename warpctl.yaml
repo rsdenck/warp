@@ -1,0 +1,376 @@
+auth:
+    password: '!@RanDenck321'
+    username: ranlens.denck@armazem.cloud
+general:
+    debug: false
+imap:
+    batch_size: 5000
+    tls_verify: true
+pinchtab:
+    auto_start: true
+    chrome_flags:
+        - --disable-blink-features=AutomationControlled
+        - --disable-dev-shm-usage
+        - --no-sandbox
+    integration:
+        screenshot_on_error: true
+        teamchat_auto_login: true
+        zabbix_auto_login: true
+    token: ""
+    url: http://localhost:9867
+server:
+    host: icewarp.armazemdc.inf.br
+    port: 993
+    url: https://icewarp.armazemdc.inf.br
+teamchat:
+    default_channel: Horus Monitoramento
+    session_id: ed9db12b31cfed3a0c35015cc9524b54
+    token: ""
+whatsapp:
+    api_url: http://localhost:3000
+    default_group: Horus Monitoramento
+    phone_number: ""
+    token: ""
+    group_mappings:
+        "4296": Horus Monitoramento
+zabbix:
+    group_mappings:
+        "1286": Horus Monitoramento
+        "1287": Horus Monitoramento
+        "1291": Horus Monitoramento
+        "1292": Horus Monitoramento
+        "1293": Horus Monitoramento
+        "1294": Horus Monitoramento
+        "1295": Horus Monitoramento
+        "1296": Horus Monitoramento
+        "1297": Horus Monitoramento
+        "1298": Horus Monitoramento
+        "1299": Horus Monitoramento
+        "1301": Horus Monitoramento
+        "1302": Horus Monitoramento
+        "1303": Horus Monitoramento
+        "1304": Horus Monitoramento
+        "1305": Horus Monitoramento
+        "1312": Horus Monitoramento
+        "1313": Horus Monitoramento
+        "1314": Horus Monitoramento
+        "1315": Horus Monitoramento
+        "1316": Horus Monitoramento
+        "1317": Horus Monitoramento
+        "1318": Horus Monitoramento
+        "1319": Horus Monitoramento
+        "1320": Horus Monitoramento
+        "1321": Horus Monitoramento
+        "1322": Horus Monitoramento
+        "1323": Horus Monitoramento
+        "1324": Horus Monitoramento
+        "1325": Horus Monitoramento
+        "1330": Horus Monitoramento
+        "1331": Horus Monitoramento
+        "1332": Horus Monitoramento
+        "1333": Horus Monitoramento
+        "1334": Horus Monitoramento
+        "1336": Horus Monitoramento
+        "1339": Horus Monitoramento
+        "1341": Horus Monitoramento
+        "1342": Horus Monitoramento
+        "1343": Horus Monitoramento
+        "1344": Horus Monitoramento
+        "1345": Horus Monitoramento
+        "1346": Horus Monitoramento
+        "1347": Horus Monitoramento
+        "1348": Horus Monitoramento
+        "1349": Horus Monitoramento
+        "1350": Horus Monitoramento
+        "1351": Horus Monitoramento
+        "1352": Horus Monitoramento
+        "1353": Horus Monitoramento
+        "1354": Horus Monitoramento
+        "1355": Horus Monitoramento
+        "1356": Horus Monitoramento
+        "1357": Horus Monitoramento
+        "1458": Horus Monitoramento
+        "1459": Horus Monitoramento
+        "1460": Horus Monitoramento
+        "1461": Horus Monitoramento
+        "1462": Horus Monitoramento
+        "1463": Horus Monitoramento
+        "1464": Horus Monitoramento
+        "1465": Horus Monitoramento
+        "1466": Horus Monitoramento
+        "1467": Horus Monitoramento
+        "1471": Horus Monitoramento
+        "1473": Horus Monitoramento
+        "1474": Horus Monitoramento
+        "1475": Horus Monitoramento
+        "1477": Horus Monitoramento
+        "1479": Horus Monitoramento
+        "1480": Horus Monitoramento
+        "1481": Horus Monitoramento
+        "1482": Horus Monitoramento
+        "1484": Horus Monitoramento
+        "1485": Horus Monitoramento
+        "1486": Horus Monitoramento
+        "1487": Horus Monitoramento
+        "1488": Horus Monitoramento
+        "1489": Horus Monitoramento
+        "1490": Horus Monitoramento
+        "1491": Horus Monitoramento
+        "1492": Horus Monitoramento
+        "1494": Horus Monitoramento
+        "1495": Horus Monitoramento
+        "1496": Horus Monitoramento
+        "1497": Horus Monitoramento
+        "1498": Horus Monitoramento
+        "1499": Horus Monitoramento
+        "1500": Horus Monitoramento
+        "1501": Horus Monitoramento
+        "1502": Horus Monitoramento
+        "1503": Horus Monitoramento
+        "1504": Horus Monitoramento
+        "1505": Horus Monitoramento
+        "1506": Horus Monitoramento
+        "1507": Horus Monitoramento
+        "1508": Horus Monitoramento
+        "1509": Horus Monitoramento
+        "1510": Horus Monitoramento
+        "1511": Horus Monitoramento
+        "1512": Horus Monitoramento
+        "1513": Horus Monitoramento
+        "1514": Horus Monitoramento
+        "1515": Horus Monitoramento
+        "1517": Horus Monitoramento
+        "1518": Horus Monitoramento
+        "1519": Horus Monitoramento
+        "1521": Horus Monitoramento
+        "1522": Horus Monitoramento
+        "1523": Horus Monitoramento
+        "1524": Horus Monitoramento
+        "1525": Horus Monitoramento
+        "1526": Horus Monitoramento
+        "1527": Horus Monitoramento
+        "1529": Horus Monitoramento
+        "1530": Horus Monitoramento
+        "1531": Horus Monitoramento
+        "1532": Horus Monitoramento
+        "1533": Horus Monitoramento
+        "1534": Horus Monitoramento
+        "1535": Horus Monitoramento
+        "1537": Horus Monitoramento
+        "1538": Horus Monitoramento
+        "1539": Horus Monitoramento
+        "1540": Horus Monitoramento
+        "1541": Horus Monitoramento
+        "1544": Horus Monitoramento
+        "1546": Horus Monitoramento
+        "1547": Horus Monitoramento
+        "1548": Horus Monitoramento
+        "1549": Horus Monitoramento
+        "1550": Horus Monitoramento
+        "1551": Horus Monitoramento
+        "1553": Horus Monitoramento
+        "1554": Horus Monitoramento
+        "1555": Horus Monitoramento
+        "1556": Horus Monitoramento
+        "1557": Horus Monitoramento
+        "1558": Horus Monitoramento
+        "1559": Horus Monitoramento
+        "1560": Horus Monitoramento
+        "1561": Horus Monitoramento
+        "1562": Horus Monitoramento
+        "1563": Horus Monitoramento
+        "1564": Horus Monitoramento
+        "1565": Horus Monitoramento
+        "1566": Horus Monitoramento
+        "1568": Horus Monitoramento
+        "1569": Horus Monitoramento
+        "1570": Horus Monitoramento
+        "1571": Horus Monitoramento
+        "1578": Horus Monitoramento
+        "1579": Horus Monitoramento
+        "1580": Horus Monitoramento
+        "1581": Horus Monitoramento
+        "1582": Horus Monitoramento
+        "1583": Horus Monitoramento
+        "1584": Horus Monitoramento
+        "1585": Horus Monitoramento
+        "1586": Horus Monitoramento
+        "1587": Horus Monitoramento
+        "1588": Horus Monitoramento
+        "1589": Horus Monitoramento
+        "1590": Horus Monitoramento
+        "1591": Horus Monitoramento
+        "1592": Horus Monitoramento
+        "1593": Horus Monitoramento
+        "1595": Horus Monitoramento
+        "1596": Horus Monitoramento
+        "1597": Horus Monitoramento
+        "1598": Horus Monitoramento
+        "1599": Horus Monitoramento
+        "1600": Horus Monitoramento
+        "1601": Horus Monitoramento
+        "1602": Horus Monitoramento
+        "1606": Horus Monitoramento
+        "1607": Horus Monitoramento
+        "1608": Horus Monitoramento
+        "1610": Horus Monitoramento
+        "1611": Horus Monitoramento
+        "1612": Horus Monitoramento
+        "1613": Horus Monitoramento
+        "1614": Horus Monitoramento
+        "1615": Horus Monitoramento
+        "1617": Horus Monitoramento
+        "1618": Horus Monitoramento
+        "1619": Horus Monitoramento
+        "1620": Horus Monitoramento
+        "1621": Horus Monitoramento
+        "1622": Horus Monitoramento
+        "1623": Horus Monitoramento
+        "1624": Horus Monitoramento
+        "1625": Horus Monitoramento
+        "1626": Horus Monitoramento
+        "1629": Horus Monitoramento
+        "1630": Horus Monitoramento
+        "1631": Horus Monitoramento
+        "1632": Horus Monitoramento
+        "1634": Horus Monitoramento
+        "1635": Horus Monitoramento
+        "1636": Horus Monitoramento
+        "1637": Horus Monitoramento
+        "1638": Horus Monitoramento
+        "1639": Horus Monitoramento
+        "1640": Horus Monitoramento
+        "1641": Horus Monitoramento
+        "1642": Horus Monitoramento
+        "1643": Horus Monitoramento
+        "1647": Horus Monitoramento
+        "1648": Horus Monitoramento
+        "1651": Horus Monitoramento
+        "1653": Horus Monitoramento
+        "1654": Horus Monitoramento
+        "1656": Horus Monitoramento
+        "1659": Horus Monitoramento
+        "1660": Horus Monitoramento
+        "1675": Horus Monitoramento
+        "1687": Horus Monitoramento
+        "1688": Horus Monitoramento
+        "1689": Horus Monitoramento
+        "1690": Horus Monitoramento
+        "1691": Horus Monitoramento
+        "1707": Horus Monitoramento
+        "1716": Horus Monitoramento
+        "2160": Horus Monitoramento
+        "2167": Horus Monitoramento
+        "2173": Horus Monitoramento
+        "2175": Horus Monitoramento
+        "2176": Horus Monitoramento
+        "2178": Horus Monitoramento
+        "2184": Horus Monitoramento
+        "2188": Horus Monitoramento
+        "2189": Horus Monitoramento
+        "2190": Horus Monitoramento
+        "2202": Horus Monitoramento
+        "2207": Horus Monitoramento
+        "2211": Horus Monitoramento
+        "2215": Horus Monitoramento
+        "2228": Horus Monitoramento
+        "2235": Horus Monitoramento
+        "2250": Horus Monitoramento
+        "2265": Horus Monitoramento
+        "2304": Horus Monitoramento
+        "2711": Horus Monitoramento
+        "2715": Horus Monitoramento
+        "2728": Horus Monitoramento
+        "2732": Horus Monitoramento
+        "2745": Horus Monitoramento
+        "2750": Horus Monitoramento
+        "2767": Horus Monitoramento
+        "3222": Horus Monitoramento
+        "3247": Horus Monitoramento
+        "3285": Horus Monitoramento
+        "3290": Horus Monitoramento
+        "3319": Horus Monitoramento
+        "3321": Horus Monitoramento
+        "3333": Horus Monitoramento
+        "3334": Horus Monitoramento
+        "3335": Horus Monitoramento
+        "3336": Horus Monitoramento
+        "3372": Horus Monitoramento
+        "3377": Horus Monitoramento
+        "3385": Horus Monitoramento
+        "3388": Horus Monitoramento
+        "3394": Horus Monitoramento
+        "3399": Horus Monitoramento
+        "3406": Horus Monitoramento
+        "3420": Horus Monitoramento
+        "3437": Horus Monitoramento
+        "3446": Horus Monitoramento
+        "3463": Horus Monitoramento
+        "3467": Horus Monitoramento
+        "3489": Horus Monitoramento
+        "3511": Horus Monitoramento
+        "3514": Horus Monitoramento
+        "3583": Horus Monitoramento
+        "4078": Horus Monitoramento
+        "4082": Horus Monitoramento
+        "4083": Horus Monitoramento
+        "4104": Horus Monitoramento
+        "4125": Horus Monitoramento
+        "4142": Horus Monitoramento
+        "4145": Horus Monitoramento
+        "4146": Horus Monitoramento
+        "4147": Horus Monitoramento
+        "4148": Horus Monitoramento
+        "4172": Horus Monitoramento
+        "4173": Horus Monitoramento
+        "4175": Horus Monitoramento
+        "4180": Horus Monitoramento
+        "4189": Horus Monitoramento
+        "4191": Horus Monitoramento
+        "4196": Horus Monitoramento
+        "4201": Horus Monitoramento
+        "4213": Horus Monitoramento
+        "4225": Horus Monitoramento
+        "4241": Horus Monitoramento
+        "4244": Horus Monitoramento
+        "4278": Horus Monitoramento
+        "4296": Horus Monitoramento
+        "4297": Horus Monitoramento
+        "4323": Horus Monitoramento
+        "4325": Horus Monitoramento
+        "4395": Horus Monitoramento
+        "4414": Horus Monitoramento
+        "4415": Horus Monitoramento
+        "4427": Horus Monitoramento
+        "4435": Horus Monitoramento
+        "4438": Horus Monitoramento
+        "4447": Horus Monitoramento
+        "4457": Horus Monitoramento
+        "4460": Horus Monitoramento
+        "4461": Horus Monitoramento
+        "4466": Horus Monitoramento
+        "4470": Horus Monitoramento
+        "4513": Horus Monitoramento
+        "4516": Horus Monitoramento
+        "4517": Horus Monitoramento
+        "4528": Horus Monitoramento
+        "4529": Horus Monitoramento
+        "4536": Horus Monitoramento
+        "4541": Horus Monitoramento
+        "4544": Horus Monitoramento
+        "4549": Horus Monitoramento
+        "4551": Horus Monitoramento
+        "4557": Horus Monitoramento
+    monitoring:
+        default_channel: Horus Monitoramento
+        enabled: true
+        interval: 5m
+    password: kCfOtLUG3xSn2X9uyo6lXSVX1RFHGEw7
+    severity_filter:
+        - Disaster
+        - High
+        - Average
+        - Warning
+    url: https://monitoramento.armazem.cloud/api_jsonrpc.php
+    username: zabbix_api
+    web_url: https://monitoramento.armazem.cloud
